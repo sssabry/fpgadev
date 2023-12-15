@@ -1,3 +1,4 @@
+// Basic Modules - Logic Gates + Wire Behavior
 module wire_behavior( // 3 inputs, 4 outputs, wire behavior
     input a,b,c,
     output w,x,y,z );
