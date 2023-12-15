@@ -29,3 +29,25 @@ module endianswitcher( // switching order of bytes (big endian -> little endian,
     assign out[7:0] = in[31:24];
 endmodule
 
+module orbitlog( // 2x 3bit inputs, bitwise OR + logical OR + not of both
+	input [2:0] a,
+    input [2:0] b,
+    output [2:0] out_or_bitwise,
+    output out_or_logical,
+    output [5:0] out_not
+		);
+    assign out_or_bitwise = a | b;
+    assign out_or_logical = a||b;
+    assign out_not = {~b,~a};
+endmodule
+
+module vectorgates ( // combinational circuit, 4 inputs, 3 outputs: AND, OR, XOR gates
+	input [3:0] in,
+    output out_and,
+    output out_or,
+    output out_xor
+);
+    assign out_and = in[0] & in[1] & in[2] & in[3]; 
+    assign out_or = in[0] | in[1] | in[2] | in[3]; 
+    assign out_xor = in[0] ^ in[1] ^ in[2] ^ in[3]; 
+endmodule
